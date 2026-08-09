@@ -49,5 +49,58 @@
 // =============================================================================
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
+// Part A — Print the First N Terms
+void printFibonacci(int n) {
+    if (n <= 0) {
+        cout << "Error: N must be a positive integer." << endl;
+        return;
+    }
+
+    long long a = 0, b = 1; // use long long for larger values
+    cout << "Fibonacci sequence: ";
+    for (int i = 0; i < n; i++) {
+        cout << a << " ";
+        long long next = a + b;
+        a = b;
+        b = next;
+    }
+    cout << endl << endl;
+}
+
+// Part B — Check if a Number Belongs to the Sequence
+bool isFibonacci(long long num) {
+    if (num < 0) return false;
+
+    long long a = 0, b = 1;
+    while (a <= num) {
+        if (a == num) return true;
+        long long next = a + b;
+        a = b;
+        b = next;
+    }
+    return false;
+}
+
+int main() {
+    int n;
+    long long num;
+
+    // Part A
+    cout << "How many terms? ";
+    cin >> n;
+    printFibonacci(n);
+
+    // Part B
+    cout << "Enter a number to check: ";
+    cin >> num;
+    if (isFibonacci(num)) {
+        cout << num << " is a Fibonacci number." << endl;
+    } else {
+        cout << num << " is NOT a Fibonacci number." << endl;
+    }
+
+    return 0;
+}

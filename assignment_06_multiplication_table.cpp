@@ -53,7 +53,49 @@
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
-
 #include <iostream>
 using namespace std;
 
+// Part A — Single Table
+void singleTable(int num) {
+    cout << "\nMultiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << " x " << i << " = " << num * i << endl;
+    }
+}
+
+// Part B — Tables from 1 to N
+void tablesUpToN(int n) {
+    if (n <= 0) {
+        cout << "Error: N must be a positive integer." << endl;
+        return;
+    }
+
+    for (int num = 1; num <= n; num++) {
+        cout << "\nMultiplication Table for " << num << ":" << endl;
+        for (int i = 1; i <= 12; i++) {
+            cout << num << " x " << i << " = " << num * i << endl;
+        }
+        cout << "---------------------------" << endl;
+    }
+}
+
+int main() {
+    int num, n;
+
+    // Part A
+    cout << "Enter a number for its multiplication table: ";
+    cin >> num;
+    if (num <= 0) {
+        cout << "Error: Number must be positive." << endl;
+    } else {
+        singleTable(num);
+    }
+
+    // Part B
+    cout << "\nEnter N to generate tables from 1 to N: ";
+    cin >> n;
+    tablesUpToN(n);
+
+    return 0;
+}
